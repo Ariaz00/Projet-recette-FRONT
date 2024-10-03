@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+NO:wght@100..400&family=Playwrite+US+Modern:wght@100..400&display=swap');
+
+*{
+    font-family: Playwrite US Modern;
+}
+
+body {
+    font-family: Playwrite US Modern;
+    background-color: #f7f7f7;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #b8c8ff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header button {
+    background-color: #93e0a4;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+header button:hover {
+    background-color: #5ebb61;
+}
+
+h1, h2 {
+    color: #a9b6ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    background-color: #93e0a4;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #5ebb61;
+}
+
+.modal {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modalContent {
+    background-color: white;
+    border-radius: 10px;
+    padding: 40px;
+    width: 80%;
+    max-width: 500px;
+    max-height: 80vh;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow-y: auto;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #74c7ff;
+}
+
+.close:hover {
+    color: #3db1ff;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-size: 16px;
+    color: #555;
+}
+
+input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="number"]:focus {
+    border-color: #74c7ff;
+    outline: none;
+}
+
+.recette_list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.recette_list div {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.recette_list div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.recette_list h3 {
+    font-size: 20px;
+    color: #a9b6ff;
+    margin-bottom: 10px;
+}
+
+.recette_list p {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.recette_list .actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.recette_list .actions button {
+    background-color: #29b6f6;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+.recette_list .actions button:hover {
+    background-color: #0288d1;
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .modalContent {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .recette_list {
+        grid-template-columns: 1fr;
+    }
+}

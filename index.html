@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/index.css">
+    <title>Recettes</title>
+</head>
+
+<body>
+    <header>
+        <button id="openAddRecipeModal">Ajouter une recette</button>
+        <button onclick="logout()">Se déconnecter</button>
+    </header>
+    <div id="addRecipeModal" class="modal">
+        <div class="modalContent">
+            <span class="close" id="closeAddRecipe">&times;</span>
+            <h1>Ajouter une recette :</h1>
+            <form id="recetteForm" onsubmit="createNewRecipe(event)">
+                <label for="title">Titre</label>
+                <input type="text" id="addTitle" placeholder="Titre" required><br>
+
+                <label for="ingredients">Ingrédients</label>
+                <input type="text" id="addIngredients" placeholder="Ingrédients" required><br>
+
+                <label for="instructions">Instructions</label>
+                <input type="text" id="addInstructions" placeholder="Instructions" required><br>
+
+                <label for="preparation_time">Temps de préparation (minutes)</label>
+                <input type="number" id="addPreparation_time" placeholder="Temps de préparation (minutes)" required><br>
+
+                <label for="cooking_time">Temps de cuisson (minutes)</label>
+                <input type="number" id="addCooking_time" placeholder="Temps de cuisson (minutes)" required><br>
+
+                <label for="difficulty">Difficulté</label>
+                <input type="text" id="addDifficulty" placeholder="Difficulté" required><br>
+
+                <label for="category">Catégorie</label>
+                <input type="text" id="addCategory" placeholder="Catégorie" required><br>
+
+                <button type="submit">Ajouter la recette</button>
+            </form>
+        </div>
+    </div>
+
+    <h2>Liste des recettes :</h2>
+    <div class="recette_list" id="recetteList"></div>
+
+    <div id="modifyRecipeModal" class="modal">
+        <div class="modalContent">
+            <span class="close" id="closeModifyRecipe">&times;</span>
+            <h1>Modifier la recette :</h1>
+            <form id="modifyForm" onsubmit="updateRecette(event)">
+                <input type="hidden" id="modifyId">
+                <label for="modifyTitle">Titre</label>
+                <input type="text" id="modifyTitle" required><br>
+    
+                <label for="modifyIngredients">Ingrédients</label>
+                <input type="text" id="modifyIngredients" required><br>
+    
+                <label for="modifyInstructions">Instructions</label>
+                <input type="text" id="modifyInstructions" required><br>
+    
+                <label for="modifyPreparationTime">Temps de préparation (min)</label>
+                <input type="number" id="modifyPreparationTime" required><br>
+    
+                <label for="modifyCookingTime">Temps de cuisson (min)</label>
+                <input type="number" id="modifyCookingTime" required><br>
+    
+                <label for="modifyDifficulty">Difficulté</label>
+                <input type="text" id="modifyDifficulty" required><br>
+    
+                <label for="modifyCategory">Catégorie</label>
+                <input type="text" id="modifyCategory" required><br>
+    
+                <button type="submit" onclick="updateRecette()">Mettre à jour la recette</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function () {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                // Si pas de token, redirection vers la page de login
+                window.location.href = 'login.html';
+            } else {
+                getAllRecipes(); // Appelle la fonction pour charger les recettes si connecté
+            }
+        }
+    </script>
+
+    <script src="./assets/js/script.js"></script>
+
+</body>
+
+</html>

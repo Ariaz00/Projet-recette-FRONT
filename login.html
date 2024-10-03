@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/login.css">
+    <title>Connexion et Inscription</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Bienvenue, inscrivez-vous ou connectez-vous !</h1>
+    </header>
+    <div class="buttons">
+        <button id="openRegisterModal">S'inscrire</button>
+        <button id="openLoginModal">Se connecter</button>
+    </div>
+    <!-- Modale pour l'inscription-->
+    <div id="registerModal" class="modal">
+        <div class="modalContent">
+            <span class="close" id="closeRegister">&times;</span>
+            <h2>Inscription</h2>
+            <form id="registerForm">
+                <label for="pseudo">Pseudo</label>
+                <input type="text" id="pseudo" name="pseudo" required><br>
+
+                <label for="mail">Email</label>
+                <input type="mail" id="mail" name="mail" required><br>
+
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" name="password" required><br>
+
+                <p id="registerMessage"></p>
+                <button type="submit">S'inscrire</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modale pour se connecter -->
+
+    <div id="loginModal" class="modal">
+        <div class="modalContent">
+            <span class="close" id="closeLogin">&times;</span>
+            <h2>Connexion</h2>
+            <form id="loginForm">
+                <label for="loginMail">Mail</label>
+                <input type="text" id="loginMail" name="pseudo" required><br>
+
+                <label for="password">Mot de passe</label>
+                <input type="password" id="loginPassword" name="password" required><br>
+
+                <p id="loginMessage"></p>
+                <button type="submit">Se connecter</button>
+            </form>
+        </div>
+    </div>
+
+
+    <script src="./assets/js/script.js"></script>
+</body>
+
+
+</html>
